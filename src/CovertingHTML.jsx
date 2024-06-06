@@ -8,6 +8,10 @@ function ConvertingHTML() {
     <form>
       <input type="text">
     </form>
+
+    (1) wrap all HTML in single root element 
+    (2) close all tags [input needs closing here]
+    (3) camelCase attributes [stroke-width -> strokeWidth]
   */
 
   return (

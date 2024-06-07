@@ -1,9 +1,9 @@
-export default function Recipe(recipe) {
+export default function Recipe({ name, ingredients }) {
   return (
     <div>
-      <h2>{recipe.name}</h2>
+      <h2>{name}</h2>
       <ul>
-        {recipe.ingredients.map((ingredient) => (
+        {ingredients.map((ingredient) => (
           <li key={ingredient}>{ingredient}</li>
         ))}
       </ul>

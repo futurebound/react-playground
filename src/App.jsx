@@ -9,6 +9,7 @@ import Music from './Music.jsx';
 import TodoList from './TodoList.jsx';
 import PackingList from './PackingList.jsx';
 import DrinkList from './DrinkList.jsx';
+import RecipeList from './RecipeList.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -41,6 +42,7 @@ function App() {
       <TodoList />
       <PackingList />
       <DrinkList />
+      <RecipeList />
     </>
   );
 }

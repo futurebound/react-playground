@@ -10,6 +10,7 @@ import TodoList from './TodoList.jsx';
 import PackingList from './PackingList.jsx';
 import DrinkList from './DrinkList.jsx';
 import RecipeList from './RecipeList.jsx';
+import Gallery from './Gallery.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
         </a>
       </div>
       <h1>Hello World</h1>
+      <Gallery />
       <div className='card'>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

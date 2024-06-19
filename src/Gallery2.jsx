@@ -5,8 +5,16 @@ export default function Gallery() {
   const [index, setIndex] = useState(0);
   const [showMore, setShowMore] = useState(false);
 
+	function handlePrevClick() {
+		if (index > 0) {
+			setIndex(index - 1);
+		} else {
+			setIndex(sculptureList.length - 1)
+		}
+  }
+
   function handleNextClick() {
-		if (index < 11) {
+		if (index < sculptureList.length - 1) {
 			setIndex(index + 1);
 		} else {
 			setIndex(0)
@@ -20,6 +28,9 @@ export default function Gallery() {
   let sculpture = sculptureList[index];
   return (
     <>
+		  <button onClick={handlePrevClick}>
+        Prev
+      </button>
       <button onClick={handleNextClick}>
         Next
       </button>

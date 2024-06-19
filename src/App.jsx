@@ -12,6 +12,7 @@ import DrinkList from './DrinkList.jsx';
 import RecipeList from './RecipeList.jsx';
 import Gallery from './Gallery.jsx';
 import Gallery2 from './Gallery2.jsx'
+import Form from './Form.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +28,7 @@ function App() {
         </a>
       </div>
       <h1>Hello World</h1>
+      <Form />
       <Gallery2 />
       <Gallery />
       <div className='card'>

@@ -15,6 +15,8 @@ import Gallery2 from './Gallery2.jsx'
 import Form from './Form.jsx';
 import FeedbackForm from './FeedbackForm.jsx';
 import TrafficLight from './TrafficLight.jsx'
+import SyncedInputs from './SyncedInput.jsx';
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +32,7 @@ function App() {
         </a>
       </div>
       <h1>Hello World</h1>
+      <SyncedInputs />
       <TrafficLight />
       <FeedbackForm />
       <Form />

@@ -16,6 +16,7 @@ import Form from './Form.jsx';
 import FeedbackForm from './FeedbackForm.jsx';
 import TrafficLight from './TrafficLight.jsx'
 import SyncedInputs from './SyncedInput.jsx';
+import FilterableList from './FilterableList.jsx';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         </a>
       </div>
       <h1>Hello World</h1>
+      <FilterableList />
       <SyncedInputs />
       <TrafficLight />
       <FeedbackForm />

@@ -12,6 +12,7 @@ export default function FilterableList() {
   return (
     <>
       <SearchBar query={query} onChange={handleChange}/>
+      <SearchBar query={query} onChange={handleChange}/>
       <hr />
       <List items={results} />
     </>	

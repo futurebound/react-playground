@@ -18,10 +18,15 @@ import FilterableList from './FilterableList.jsx';
 
 import ChatRoom from './components/useEffect/ChatRoom.jsx';
 import MovingDot from './components/useEffect/MovingDot.jsx';
+import {
+  createEncryptedConnection,
+  createUnencryptedConnection,
+} from './components/useEffect/chat.js';
 
 function App() {
   const [count, setCount] = useState(0);
   const [roomId, setRoomId] = useState('general');
+  const [isEncrypted, setIsEncrypted] = useState(false);
 
   return (
     <>
@@ -37,8 +42,21 @@ function App() {
           <option value="music">music</option>
         </select>
       </label>
+      <label>
+        <input
+          type="checkbox"
+          checked={isEncrypted}
+          onChange={e => setIsEncrypted(e.target.checked)}
+        />
+        Enable encryption
+      </label>
       <hr />
-      <ChatRoom roomId={roomId} />
+      <ChatRoom 
+        roomId={roomId}         
+        createConnection={isEncrypted ?
+          createEncryptedConnection :
+          createUnencryptedConnection
+        } />
       <FilterableList />
       <SyncedInputs />
       <TrafficLight />

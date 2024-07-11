@@ -17,6 +17,7 @@ import SyncedInputs from './SyncedInput.jsx';
 import FilterableList from './FilterableList.jsx';
 
 import ChatRoom from './components/useEffect/ChatRoom.jsx';
+import MovingDot from './components/useEffect/MovingDot.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <>
+      <MovingDot />
       <label>
         Choose the chat room:{' '}
         <select

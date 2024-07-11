@@ -7,34 +7,21 @@
  * 
  * Simplify this component by removing all the unnecessary state and Effects.
  * 
- * 
+ * --> There are only two essential pieces of state in this example: the list
+ *     of todos and the showActive state variable which represents whether the
+ *     checkbox is ticked. All of the other state variables are redundant and
+ *     can be calculated during rendering instead. This includes the footer
+ *     which you can move directly into the surrounding JSX.
  */
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { initialTodos, createTodo } from './todos.js';
 
 export default function EffectTodoList() {
   const [todos, setTodos] = useState(initialTodos);
   const [showActive, setShowActive] = useState(false);
-  const [activeTodos, setActiveTodos] = useState([]);
-  const [visibleTodos, setVisibleTodos] = useState([]);
-  const [footer, setFooter] = useState(null);
-
-  useEffect(() => {
-    setActiveTodos(todos.filter(todo => !todo.completed));
-  }, [todos]);
-
-  useEffect(() => {
-    setVisibleTodos(showActive ? activeTodos : todos);
-  }, [showActive, todos, activeTodos]);
-
-  useEffect(() => {
-    setFooter(
-      <footer>
-        {activeTodos.length} todos left
-      </footer>
-    );
-  }, [activeTodos]);
+  const activeTodos = todos.filter(todo => !todo.completed);
+  const visibleTodos = showActive ? activeTodos : todos;
 
   return (
     <>
@@ -54,7 +41,9 @@ export default function EffectTodoList() {
           </li>
         ))}
       </ul>
-      {footer}
+      <footer>
+        {activeTodos.length} todos left
+      </footer>
     </>
   );
 }

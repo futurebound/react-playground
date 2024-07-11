@@ -25,10 +25,11 @@
  *  TodoList component. However, you need to make sure that getVisibleTodos()
  *  does not re-run (and so does not print any logs) when you type into the input.
  * 
- * --> 
+ * --> Remove the state variable and the Effect, and instead add a useMemo call
+ *     to cache the result of calling getVisibleTodos():
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { initialTodos, createTodo, getVisibleTodos } from './todos.js';
 
 export default function EffectTodoList() {
@@ -36,11 +37,10 @@ export default function EffectTodoList() {
   const [showActive, setShowActive] = useState(false);
   const activeTodos = todos.filter(todo => !todo.completed);
   const [text, setText] = useState('');
-  const [visibleTodos, setVisibleTodos] = useState([]);
-
-  useEffect(() => {
-    setVisibleTodos(getVisibleTodos(todos, showActive));
-  }, [todos, showActive]);
+  const visibleTodos = useMemo(
+    () => getVisibleTodos(todos, showActive),
+    [todos, showActive]
+  );
 
   function handleAddClick() {
     setText('');

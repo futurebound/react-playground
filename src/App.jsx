@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 
 import Greeting from './Greeting.jsx';
@@ -18,21 +16,27 @@ import TrafficLight from './TrafficLight.jsx'
 import SyncedInputs from './SyncedInput.jsx';
 import FilterableList from './FilterableList.jsx';
 
+import ChatRoom from './components/useEffect/ChatRoom.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [roomId, setRoomId] = useState('general');
 
   return (
     <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Hello World</h1>
+      <label>
+        Choose the chat room:{' '}
+        <select
+          value={roomId}
+          onChange={e => setRoomId(e.target.value)}
+        >
+          <option value="general">general</option>
+          <option value="travel">travel</option>
+          <option value="music">music</option>
+        </select>
+      </label>
+      <hr />
+      <ChatRoom roomId={roomId} />
       <FilterableList />
       <SyncedInputs />
       <TrafficLight />

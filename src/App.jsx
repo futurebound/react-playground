@@ -22,6 +22,7 @@ import {
   createEncryptedConnection,
   createUnencryptedConnection,
 } from './components/useEffect/chat.js';
+import EffectTodoList from './components/useEffect/EffectTodoList.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <>
+      <EffectTodoList />
       <MovingDot />
       <label>
         Choose the chat room:{' '}

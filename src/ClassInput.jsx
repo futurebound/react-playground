@@ -49,7 +49,19 @@ class ClassInput extends Component {
         {/* The list of all the To-Do's, displayed */}
         <ul>
           {this.state.todos.map((todo) => (
-            <li key={todo}>{todo}</li>
+            <li key={todo}>
+              {todo}
+              <button
+                onClick={() =>
+                  this.setState((state) => ({
+                    ...state,
+                    todos: state.todos.filter((item) => item != todo),
+                  }))
+                }
+              >
+                Delete
+              </button>
+            </li>
           ))}
         </ul>
       </section>

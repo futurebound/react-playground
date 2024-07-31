@@ -41,13 +41,7 @@ const FunctionalInput = ({ name }) => {
           <li key={todo}>
             {todo}
             <button
-              onClick={() =>
-                setTodos(
-                  todos.filter((item) => {
-                    return item != todo;
-                  })
-                )
-              }
+              onClick={() => setTodos(todos.filter((item) => item != todo))}
             >
               Delete
             </button>

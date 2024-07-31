@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 
 import Greeting from './Greeting.jsx';
@@ -10,21 +8,67 @@ import TodoList from './TodoList.jsx';
 import PackingList from './PackingList.jsx';
 import DrinkList from './DrinkList.jsx';
 import RecipeList from './RecipeList.jsx';
+import Gallery from './Gallery.jsx';
+import Gallery2 from './Gallery2.jsx'
+import Form from './Form.jsx';
+import FeedbackForm from './FeedbackForm.jsx';
+import TrafficLight from './TrafficLight.jsx'
+import SyncedInputs from './SyncedInput.jsx';
+import FilterableList from './FilterableList.jsx';
+
+import ChatRoom from './components/useEffect/ChatRoom.jsx';
+import MovingDot from './components/useEffect/MovingDot.jsx';
+import {
+  createEncryptedConnection,
+  createUnencryptedConnection,
+} from './components/useEffect/chat.js';
+import EffectTodoList from './components/useEffect/EffectTodoList.jsx';
+import EffectForm from './components/useEffect/EffectForm.jsx';
+
 
 function App() {
   const [count, setCount] = useState(0);
+  const [roomId, setRoomId] = useState('general');
+  const [isEncrypted, setIsEncrypted] = useState(false);
 
   return (
     <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Hello World</h1>
+      <EffectForm />
+      <EffectTodoList />
+      <MovingDot />
+      <label>
+        Choose the chat room:{' '}
+        <select
+          value={roomId}
+          onChange={e => setRoomId(e.target.value)}
+        >
+          <option value="general">general</option>
+          <option value="travel">travel</option>
+          <option value="music">music</option>
+        </select>
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          checked={isEncrypted}
+          onChange={e => setIsEncrypted(e.target.checked)}
+        />
+        Enable encryption
+      </label>
+      <hr />
+      <ChatRoom 
+        roomId={roomId}         
+        createConnection={isEncrypted ?
+          createEncryptedConnection :
+          createUnencryptedConnection
+        } />
+      <FilterableList />
+      <SyncedInputs />
+      <TrafficLight />
+      <FeedbackForm />
+      <Form />
+      <Gallery2 />
+      <Gallery />
       <div className='card'>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

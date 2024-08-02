@@ -42,6 +42,9 @@ const FunctionalInput = ({ name }) => {
         {todos.map((todo) => (
           <li key={todo}>
             {todo}
+            <button onClick={() => }>
+              Edit
+            </button>
             <button
               onClick={() => setTodos(todos.filter((item) => item != todo))}
             >

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Count from './components/Count';
 
 // eslint-disable-next-line react/function-component-definition, react/prop-types
 const FunctionalInput = ({ name }) => {
@@ -35,6 +36,7 @@ const FunctionalInput = ({ name }) => {
         <button type='submit'>Submit</button>
       </form>
       <h4>All the tasks!</h4>
+      <Count todos={todos} />
       {/* The list of all the To-Do's, displayed */}
       <ul>
         {todos.map((todo) => (

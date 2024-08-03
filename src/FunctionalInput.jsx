@@ -42,7 +42,7 @@ const FunctionalInput = ({ name }) => {
         {todos.map((todo) => (
           <li key={todo}>
             {todo}
-            <button onClick={() => }>
+            <button onClick={() => console.log('edit clicked')}>
               Edit
             </button>
             <button

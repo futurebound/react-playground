@@ -53,6 +53,9 @@ class ClassInput extends Component {
           {this.state.todos.map((todo) => (
             <li key={todo}>
               {todo}
+              <button onClick={() => console.log('edit clicked')}>
+                Edit
+              </button>
               <button
                 onClick={() =>
                   this.setState((state) => ({
